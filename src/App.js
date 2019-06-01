@@ -14,7 +14,7 @@ function App() {
           startColor="green"
           endColor="red"
           maxSegmentLabels={5}
-          segments={1000}
+          segments={3333}
           needleTransitionDuration={4000}
           needleTransition="easeElastic"
         />
