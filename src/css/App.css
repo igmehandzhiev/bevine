@@ -84,6 +84,11 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.sensors-grid > .column {
+  max-width: 60rem;
+}
+
 .non-bordered {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -91,4 +96,15 @@ body {
 }
 .App-link {
   color: #61dafb;
+}
+
+.App-logo {
+  width: 27vmin;
+}
+.nav-bar {
+  background: #52151c !important;
+}
+.logo-nav-bar {
+  display: flex;
+  align-items: center;
 }
