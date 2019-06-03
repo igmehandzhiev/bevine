@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Image, Header, Grid, Card } from "semantic-ui-react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
-import logo from "./resources/logo_black.png";
-import "./App.css";
+import logo from "./graphics/logo_black.png";
+import "./css/App.css";
 import { HumiditySensor } from "./components/HumiditySensor";
 import { TemperatureSensor } from "./components/TemperatureSensor";
 import { MoistureSensor } from "./components/MoistureSensor";
