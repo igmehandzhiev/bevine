@@ -1,15 +1,5 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  position: absolute;
-  top: 1vmin;
-  height: 10vmin;
-  pointer-events: none;
-}
-
-.App-header {
   background-color: white;
   min-height: 100vh;
   display: flex;
@@ -19,7 +9,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.non-bordered {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none !important;
+}
 .App-link {
   color: #61dafb;
 }
