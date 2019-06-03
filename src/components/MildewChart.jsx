@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import {
   CartesianGrid,
   Legend,
@@ -9,36 +9,7 @@ import {
   YAxis
 } from "recharts";
 import { Fetch } from "../services/Fetch";
-
-class CustomizedLabel extends PureComponent {
-  static fillColor(value) {
-    if (value < 13) {
-      return "green";
-    }
-    if (value < 25) {
-      return "blue";
-    }
-    return "red";
-  }
-
-  render() {
-    const { x, y, value } = this.props;
-
-    return (
-      <text
-        x={x}
-        y={y}
-        dy={-9}
-        dx={-5}
-        fill={CustomizedLabel.fillColor(value)}
-        fontSize={13}
-        textAnchor="middle"
-      >
-        {value}
-      </text>
-    );
-  }
-}
+import CustomizedChartLabel from "./CustomizedChartLabel";
 
 export class MildewChart extends React.Component {
   constructor(props) {
@@ -91,7 +62,7 @@ export class MildewChart extends React.Component {
           type="natural"
           dataKey="pv"
           stroke="#8884d8"
-          label={<CustomizedLabel />}
+          label={<CustomizedChartLabel />}
         />
       </LineChart>
     );
