@@ -6,13 +6,9 @@ import "./App.css";
 import { HumiditySensor } from "./components/HumiditySensor";
 import { TemperatureSensor } from "./components/TemperatureSensor";
 import { MoistureSensor } from "./components/MoistureSensor";
+import { MildewChart } from "./components/MildewChart";
 
 function App() {
-  const data = [
-    { name: "Page A", uv: 400, pv: 1400, amt: 1400 },
-    { name: "Page A", uv: 300, pv: 2400, amt: 1500 },
-    { name: "Page A", uv: 500, pv: 3400, amt: 1200 }
-  ];
   return (
     <Container>
       <Header as="h1" textAlign="center">
@@ -35,17 +31,7 @@ function App() {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <LineChart
-            width={600}
-            height={300}
-            data={data}
-            margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-          >
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <XAxis dataKey="name" />
-            <YAxis />
-          </LineChart>
+          <MildewChart />
         </Grid.Row>
       </Grid>
     </Container>
