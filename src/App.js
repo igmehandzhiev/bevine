@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Image, Header, Grid, Card } from "semantic-ui-react";
-import { Temperature, Tvoc } from "react-environment-chart";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 import logo from "./resources/logo_black.png";
 import "./App.css";
 import { HumiditySensor } from "./components/HumiditySensor";
-import TemperatureSensor from "./components/TemperatureSensor";
+import { TemperatureSensor } from "./components/TemperatureSensor";
+import { MoistureSensor } from "./components/MoistureSensor";
 
 function App() {
   const data = [
@@ -25,12 +25,12 @@ function App() {
           </Grid.Column>
           <Grid.Column width={5}>
             <Card className="non-bordered">
-             <TemperatureSensor/>
+              <TemperatureSensor />
             </Card>
           </Grid.Column>
           <Grid.Column width={5}>
             <Card className="non-bordered">
-              <Tvoc height={250} value={23} />
+              <MoistureSensor />
             </Card>
           </Grid.Column>
         </Grid.Row>
