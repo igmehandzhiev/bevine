@@ -1,0 +1,130 @@
+/* cyrillic */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+    url("fonts/OpenSans/OpenSans-Light.ttf") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+    url("fonts/OpenSans/OpenSans-Light.ttf") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"),
+    url("fonts/OpenSans/OpenSans-Regular.ttf") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"),
+    url("fonts/OpenSans/OpenSans-Regular.ttf") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"),
+    url("fonts/OpenSans/OpenSans-Semibold.ttf") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"),
+    url("fonts/OpenSans/OpenSans-Semibold.ttf") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Open Sans", "HelveticaNeue-Light", "HelveticaNeue", Helvetica,
+    Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: black;
+}
+
+.App {
+  text-align: center;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+#sensors-grid {
+  margin-top: 10vmin;
+}
+
+.temperature {
+  margin-left: 10vmin;
+}
+
+.tvoc {
+  margin-left: 10vmin;
+}
+
+.sensors-grid > .column {
+  max-width: 60rem;
+}
+
+.non-bordered {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none !important;
+}
+.App-link {
+  color: #61dafb;
+}
+
+.App-logo {
+  width: 27vmin;
+}
+.nav-bar {
+  background: #52151c !important;
+}
+.logo-nav-bar {
+  display: flex;
+  align-items: center;
+}
+
+#vision {
+  font-family: Helvetica, serif;
+  font-size: 5vmin;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  line-height: 3vmin;
+}
