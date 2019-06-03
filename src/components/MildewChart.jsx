@@ -17,11 +17,11 @@ export class MildewChart extends React.Component {
     this.state = {
       value: 0,
       data: [
-        { name: "05/06", uv: 12, pv: 13, amt: 31 },
-        { name: "06/06", uv: 15, pv: 16, amt: 12 },
-        { name: "07/06", uv: 17, pv: 11, amt: 12 },
-        { name: "08/06", uv: 22, pv: 21, amt: 14 },
-        { name: "09/06", uv: 26, pv: 19, amt: 19 }
+        { name: "05/06", uv: 12, index: 13, amt: 31 },
+        { name: "06/06", uv: 15, index: 16, amt: 12 },
+        { name: "07/06", uv: 17, index: 11, amt: 12 },
+        { name: "08/06", uv: 22, index: 21, amt: 14 },
+        { name: "09/06", uv: 26, index: 19, amt: 19 }
       ]
     };
   }
@@ -60,7 +60,7 @@ export class MildewChart extends React.Component {
         <Legend />
         <Line
           type="natural"
-          dataKey="pv"
+          dataKey="index"
           stroke="#8884d8"
           label={<CustomizedChartLabel />}
         />
