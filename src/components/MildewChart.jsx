@@ -55,7 +55,14 @@ export class MildewChart extends React.Component {
       <LineChart width={500} height={300} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" height={60} />
-        <YAxis />
+        <YAxis
+          label={{
+            value: "Mildew Index",
+            angle: -90,
+            position: "insideLeft",
+            textAnchor: "middle"
+          }}
+        />
         <Tooltip />
         <Legend />
         <Line

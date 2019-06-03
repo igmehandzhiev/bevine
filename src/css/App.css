@@ -84,6 +84,17 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+#sensors-grid {
+  margin-top: 10vmin;
+}
+
+.temperature {
+  margin-left: 10vmin;
+}
+
+.tvoc {
+  margin-left: 10vmin;
+}
 
 .sensors-grid > .column {
   max-width: 60rem;
@@ -107,4 +118,13 @@ body {
 .logo-nav-bar {
   display: flex;
   align-items: center;
+}
+
+#vision {
+  font-family: Helvetica, serif;
+  font-size: 5vmin;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  line-height: 3vmin;
 }
