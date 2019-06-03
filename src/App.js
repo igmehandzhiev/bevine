@@ -5,6 +5,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 import logo from "./resources/logo_black.png";
 import "./App.css";
 import { HumiditySensor } from "./components/HumiditySensor";
+import TemperatureSensor from "./components/TemperatureSensor";
 
 function App() {
   const data = [
@@ -24,11 +25,7 @@ function App() {
           </Grid.Column>
           <Grid.Column width={5}>
             <Card className="non-bordered">
-              <Temperature
-                height={250}
-                tips={[" ", " ", " ", " "]}
-                value={23}
-              />
+             <TemperatureSensor/>
             </Card>
           </Grid.Column>
           <Grid.Column width={5}>
