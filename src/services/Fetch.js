@@ -2,7 +2,7 @@ class Fetch {
   static redirect(url, settings) {
     return new Promise((resolve, reject) => {
       fetch(
-        url,
+        `http://localhost:8000${url}`,
         Object.assign(
           {
             credentials: "same-origin"

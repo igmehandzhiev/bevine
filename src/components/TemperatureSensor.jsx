@@ -14,7 +14,7 @@ export class TemperatureSensor extends React.Component {
     setInterval(() => {
       const value = Math.random() * 100;
       this.setState({
-        value
+        value: this.fetchTemperature()
       });
     }, 1000);
   }
