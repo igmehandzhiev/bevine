@@ -1,6 +1,8 @@
 import React from "react";
 import { Temperature } from "react-environment-chart";
+import { Card, CardContent, CardHeader } from "semantic-ui-react";
 import { Fetch } from "../services/Fetch";
+import Number from "./Number";
 
 export class TemperatureSensor extends React.Component {
   constructor(props) {
@@ -36,7 +38,15 @@ export class TemperatureSensor extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <Temperature height={250} tips={[" ", " ", " ", " "]} value={value} />
+      <Card>
+        <Card.Content>
+          <Card.Header content="Temperature" />
+          <Card.Meta>
+            <Number value={value} />%
+          </Card.Meta>
+          <Temperature height={250} tips={[" ", " ", " ", " "]} value={value} />
+        </Card.Content>
+      </Card>
     );
   }
 }
