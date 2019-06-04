@@ -36,7 +36,7 @@ export class MildewChart extends React.Component {
   }
 
   fetchMildewData() {
-    Fetch.redirect("/api/mildew/")
+    Fetch.redirect("/api/mildew")
       .then(response => {
         return response.json();
       })

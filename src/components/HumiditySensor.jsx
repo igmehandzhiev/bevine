@@ -1,6 +1,7 @@
 import React from "react";
 import { Humidity } from "react-environment-chart";
 import { Fetch } from "../services/Fetch";
+import Number from "./Number";
 
 export class HumiditySensor extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export class HumiditySensor extends React.Component {
   }
 
   fetchHumidity() {
-    Fetch.redirect("/api/humidity/")
+    Fetch.redirect("/api/humidity")
       .then(response => {
         return response.json();
       })
@@ -35,7 +36,12 @@ export class HumiditySensor extends React.Component {
 
   render() {
     const { value } = this.state;
-    return <Humidity height={150} value={value} />;
+    return (
+      <div>
+        <Number value={value} />
+        <Humidity height={150} value={value} />
+      </div>
+    );
   }
 }
 

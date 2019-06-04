@@ -20,7 +20,7 @@ export class TemperatureSensor extends React.Component {
   }
 
   fetchTemperature() {
-    Fetch.redirect("/api/temperature/")
+    Fetch.redirect("/api/temperature")
       .then(response => {
         return response.json();
       })
