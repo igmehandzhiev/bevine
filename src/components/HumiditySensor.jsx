@@ -2,6 +2,7 @@ import React from "react";
 import { Humidity } from "react-environment-chart";
 import { Fetch } from "../services/Fetch";
 import Number from "./Number";
+import SensorWrapper from "./SensorWrapper";
 
 export class HumiditySensor extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export class HumiditySensor extends React.Component {
       this.setState({
         value: this.fetchHumidity()
       });
-    }, 1000);
+    }, 3000);
   }
 
   fetchHumidity() {
@@ -37,10 +38,12 @@ export class HumiditySensor extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <div>
-        <Number value={value} />
-        <Humidity height={150} value={value} />
-      </div>
+      <SensorWrapper
+        header="HUMIDITY"
+        // startAngle={-180}
+        // endAngle={0}
+        value={value}
+      />
     );
   }
 }

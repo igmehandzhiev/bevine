@@ -1,8 +1,8 @@
 import React from "react";
-import { Temperature } from "react-environment-chart";
-import { Card, CardContent, CardHeader } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import { Fetch } from "../services/Fetch";
 import Number from "./Number";
+import SensorWrapper from "./SensorWrapper";
 
 export class TemperatureSensor extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export class TemperatureSensor extends React.Component {
       this.setState({
         value: this.fetchTemperature()
       });
-    }, 1000);
+    }, 3000);
   }
 
   fetchTemperature() {
@@ -38,15 +38,12 @@ export class TemperatureSensor extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header content="Temperature" />
-          <Card.Meta>
-            <Number value={value} />%
-          </Card.Meta>
-          <Temperature height={250} tips={[" ", " ", " ", " "]} value={value} />
-        </Card.Content>
-      </Card>
+      <SensorWrapper
+        header="TEMPERATURE"
+        // startAngle={-90}
+        // endAngle={90}
+        value={value}
+      />
     );
   }
 }

@@ -3,18 +3,19 @@ import {
   Container,
   Image,
   Grid,
-  Card,
   Divider,
   Menu,
-  Segment
+  Card,
+  Accordion,
+  Icon
 } from "semantic-ui-react";
 import logo from "./graphics/logo_white.png";
 import "./css/App.css";
+import { MildewChart } from "./components/MildewChart";
 import { HumiditySensor } from "./components/HumiditySensor";
 import { TemperatureSensor } from "./components/TemperatureSensor";
 import { MoistureSensor } from "./components/MoistureSensor";
-import { MildewChart } from "./components/MildewChart";
-import Label from "semantic-ui-react/dist/commonjs/elements/Label";
+import MildewIndex from "./components/MildewIndex";
 
 function App() {
   return (
@@ -26,33 +27,35 @@ function App() {
         inverted
         color="b92c2c"
       >
-        <Menu.Header className="logo-nav-bar" fitted>
+        <Menu.Header className="logo-nav-bar">
           <Image src={logo} className="App-logo" alt="logo" />
         </Menu.Header>
-        <Menu.Item className="logo-nav-bar" position="center" fitted>
-          {/*TODO: Make that centered and remove right border*/}
+        <Menu.Item className="logo-nav-bar" fitted="horizontally">
+          {/* TODO: Make that centered and remove right border */}
           <h1 id="vision">We make vines talk</h1>
         </Menu.Item>
       </Menu>
-      <Grid container id="sensors-grid" textAlign="center" centered>
-        <Grid.Row columns={3}>
-          <Grid.Column>
-            <Label circular content="Humidity" />
-            <HumiditySensor />
-          </Grid.Column>
-          <Grid.Column>
-            <Label circular content="Temperature" />
-            <TemperatureSensor className="vertical-sensor" />
-          </Grid.Column>
-          <Grid.Column>
-            <Label circular content="Moisture" />
-            <MoistureSensor />
-          </Grid.Column>
-        </Grid.Row>
-        <Divider />
-        <Grid.Row>
-          <MildewChart />
-        </Grid.Row>
+      <Grid>
+        <Grid container id="sensors-grid" textAlign="center" centered>
+          <Grid.Row columns={3}>
+            <Grid.Column>
+              <HumiditySensor />
+            </Grid.Column>
+            <Grid.Column>
+              <TemperatureSensor />
+            </Grid.Column>
+            <Grid.Column>
+              <MoistureSensor />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <MildewIndex />
+          </Grid.Row>
+          <Divider />
+          <Grid.Row>
+            <MildewChart/>
+          </Grid.Row>
+        </Grid>
       </Grid>
     </Container>
   );

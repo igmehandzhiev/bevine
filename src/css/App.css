@@ -71,6 +71,7 @@ body {
   font-weight: 400;
   font-size: 0.875rem;
   color: black;
+  background-color: rgba(233, 233, 233, 0.3);
 }
 
 .App {
@@ -85,15 +86,7 @@ body {
   color: white;
 }
 #sensors-grid {
-  margin-top: 10vmin;
-}
-
-.temperature {
-  margin-left: 10vmin;
-}
-
-.tvoc {
-  margin-left: 10vmin;
+  margin-top: 3rem;
 }
 
 .sensors-grid > .column {
@@ -113,7 +106,7 @@ body {
   width: 27vmin;
 }
 .nav-bar {
-  background: #52151c !important;
+  background: #57120b !important;
 }
 .logo-nav-bar {
   display: flex;
@@ -126,10 +119,13 @@ body {
   font-style: normal;
   font-variant: normal;
   font-weight: 100;
-  line-height: 3vmin;
+  line-height: 2rem;
+  border: none !important;
+}
+.ui.menu .item:before {
+  width: 0;
 }
 
-#number {
-  font-size: 20vmin;
-  font-weight: 500;
+.mildew {
+  margin: 0 10vmin !important;
 }

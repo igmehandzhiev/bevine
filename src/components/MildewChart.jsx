@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis
 } from "recharts";
+import { Accordion, Icon } from "semantic-ui-react";
 import { Fetch } from "../services/Fetch";
 import CustomizedChartLabel from "./CustomizedChartLabel";
 
@@ -35,6 +36,13 @@ export class MildewChart extends React.Component {
     }, 1000);
   }
 
+  handleClick = (e, titleProps) => {
+    const { index } = titleProps;
+    const { activeIndex } = this.state;
+    const newIndex = activeIndex === index ? -1 : index;
+
+    this.setState({ activeIndex: newIndex });
+  };
   fetchMildewData() {
     Fetch.redirect("/api/mildew")
       .then(response => {
@@ -50,28 +58,40 @@ export class MildewChart extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, activeIndex } = this.state;
     return (
-      <LineChart width={500} height={300} data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" height={60} />
-        <YAxis
-          label={{
-            value: "Mildew Index",
-            angle: -90,
-            position: "insideLeft",
-            textAnchor: "middle"
-          }}
-        />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="natural"
-          dataKey="index"
-          stroke="#8884d8"
-          label={<CustomizedChartLabel />}
-        />
-      </LineChart>
+      <Accordion styled>
+        <Accordion.Title
+          active={activeIndex === 0}
+          index={0}
+          onClick={this.handleClick}
+        >
+          <Icon name="dropdown" />
+          History Data
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === 0}>
+          <LineChart width={500} height={300} data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" height={60} />
+            <YAxis
+              label={{
+                value: "Mildew Index",
+                angle: -90,
+                position: "insideLeft",
+                textAnchor: "middle"
+              }}
+            />
+            <Tooltip />
+            <Legend />
+            <Line
+              type="natural"
+              dataKey="index"
+              stroke="#8884d8"
+              label={<CustomizedChartLabel />}
+            />
+          </LineChart>
+        </Accordion.Content>
+      </Accordion>
     );
   }
 }
