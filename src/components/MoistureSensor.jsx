@@ -1,6 +1,13 @@
 import React from "react";
 import { Fetch } from "../services/Fetch";
-import SensorWrapper from "./SensorWrapper";
+import GaugeWrapper from "./GaugeWrapper";
+
+const getHexColor = value => {
+  if (value < 0.7) {
+    return "#77be47";
+  }
+  return "#e79419";
+};
 
 export class MoistureSensor extends React.Component {
   constructor(props) {
@@ -35,12 +42,16 @@ export class MoistureSensor extends React.Component {
 
   render() {
     const { value } = this.state;
+    const colorHex = `${getHexColor(value)}`;
     return (
-      <SensorWrapper
-        header="MOISTURE"
-        // startAngle={0}
-        // endAngle={180}
+      <GaugeWrapper
         value={value}
+        width={200}
+        height={160}
+        header="MOISTURE"
+        color={colorHex}
+        min={0}
+        max={1}
       />
     );
   }

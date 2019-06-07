@@ -1,9 +1,8 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 import RadialChart from "./RadialChart";
-import MildewIndex from "./MildewIndex";
 
-class SensorWrapper extends React.PureComponent {
+class RadialChartWrapper extends React.PureComponent {
   render() {
     const {
       header,
@@ -33,4 +32,4 @@ class SensorWrapper extends React.PureComponent {
   }
 }
 
-export default SensorWrapper;
+export default RadialChartWrapper;

@@ -1,5 +1,5 @@
 import React from "react";
-import SensorWrapper from "./SensorWrapper";
+import RadialChartWrapper from "./RadialChartWrapper";
 import { Fetch } from "../services/Fetch";
 
 class MildewIndex extends React.Component {
@@ -21,7 +21,7 @@ class MildewIndex extends React.Component {
   }
 
   fetchMildewData() {
-    Fetch.redirect("/api/mildew")
+    Fetch.redirect("/data/downyMildewIndex")
       .then(response => {
         return response.json();
       })
@@ -38,7 +38,7 @@ class MildewIndex extends React.Component {
     const { value } = this.state;
 
     return (
-      <SensorWrapper
+      <RadialChartWrapper
         className="mildew"
         header="MILDEW INDEX"
         // startAngle={0}

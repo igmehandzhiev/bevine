@@ -16,24 +16,14 @@ export class MildewChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
       data: [
-        { name: "05/06", uv: 12, index: 13, amt: 31 },
-        { name: "06/06", uv: 15, index: 16, amt: 12 },
-        { name: "07/06", uv: 17, index: 11, amt: 12 },
-        { name: "08/06", uv: 22, index: 21, amt: 14 },
-        { name: "09/06", uv: 26, index: 19, amt: 19 }
+        { name: "05/06", temperature: 12, humidity: 61, moisture: 70 },
+        { name: "06/06", temperature: 15, humidity: 54, moisture: 65 },
+        { name: "07/06", temperature: 17, humidity: 61, moisture: 53 },
+        { name: "08/06", temperature: 22, humidity: 50, moisture: 41 },
+        { name: "09/06", temperature: 26, humidity: 79, moisture: 63 }
       ]
     };
-  }
-
-  componentDidMount() {
-    setInterval(() => {
-      const value = Math.random() * 100;
-      this.setState({
-        value
-      });
-    }, 1000);
   }
 
   handleClick = (e, titleProps) => {
@@ -43,19 +33,6 @@ export class MildewChart extends React.Component {
 
     this.setState({ activeIndex: newIndex });
   };
-  fetchMildewData() {
-    Fetch.redirect("/api/mildew")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        if (data.status !== 403) {
-          this.setState({
-            value: data
-          });
-        }
-      });
-  }
 
   render() {
     const { data, activeIndex } = this.state;
@@ -85,8 +62,20 @@ export class MildewChart extends React.Component {
             <Legend />
             <Line
               type="natural"
-              dataKey="index"
-              stroke="#8884d8"
+              dataKey="temperature"
+              stroke="#653887"
+              label={<CustomizedChartLabel />}
+            />
+            <Line
+              type="natural"
+              dataKey="humidity"
+              stroke="#134857"
+              label={<CustomizedChartLabel />}
+            />
+            <Line
+              type="natural"
+              dataKey="moisture"
+              stroke="#1284d0"
               label={<CustomizedChartLabel />}
             />
           </LineChart>

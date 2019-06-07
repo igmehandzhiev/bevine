@@ -1,8 +1,16 @@
 import React from "react";
-import { Humidity } from "react-environment-chart";
 import { Fetch } from "../services/Fetch";
-import Number from "./Number";
-import SensorWrapper from "./SensorWrapper";
+import GaugeWrapper from "./GaugeWrapper";
+
+const getHexColor = value => {
+  if (value < 49) {
+    return "#77be47";
+  }
+  if (value < 69) {
+    return "#beba11";
+  }
+  return "#b42400";
+};
 
 export class HumiditySensor extends React.Component {
   constructor(props) {
@@ -15,14 +23,12 @@ export class HumiditySensor extends React.Component {
   componentDidMount() {
     setInterval(() => {
       const value = Math.random() * 100;
-      this.setState({
-        value: this.fetchHumidity()
-      });
+      this.fetchHumidity();
     }, 3000);
   }
 
   fetchHumidity() {
-    Fetch.redirect("/api/humidity")
+    Fetch.redirect("/data/humidity")
       .then(response => {
         return response.json();
       })
@@ -37,12 +43,16 @@ export class HumiditySensor extends React.Component {
 
   render() {
     const { value } = this.state;
+    const colorHex = `${getHexColor(value)}`;
     return (
-      <SensorWrapper
-        header="HUMIDITY"
-        // startAngle={-180}
-        // endAngle={0}
+      <GaugeWrapper
         value={value}
+        width={200}
+        height={160}
+        header="HUMIDITY"
+        color={colorHex}
+        min={0}
+        max={100}
       />
     );
   }

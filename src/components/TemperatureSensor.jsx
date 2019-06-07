@@ -1,8 +1,16 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
 import { Fetch } from "../services/Fetch";
-import Number from "./Number";
-import SensorWrapper from "./SensorWrapper";
+import GaugeWrapper from "./GaugeWrapper";
+
+const getHexColor = value => {
+  if (value < 13) {
+    return "#00a191";
+  }
+  if (value < 37) {
+    return "#77be47";
+  }
+  return "#b42400";
+};
 
 export class TemperatureSensor extends React.Component {
   constructor(props) {
@@ -22,7 +30,7 @@ export class TemperatureSensor extends React.Component {
   }
 
   fetchTemperature() {
-    Fetch.redirect("/api/temperature")
+    Fetch.redirect("/data/temperature")
       .then(response => {
         return response.json();
       })
@@ -37,12 +45,16 @@ export class TemperatureSensor extends React.Component {
 
   render() {
     const { value } = this.state;
+    const colorHex = `${getHexColor(value)}`;
     return (
-      <SensorWrapper
-        header="TEMPERATURE"
-        // startAngle={-90}
-        // endAngle={90}
+      <GaugeWrapper
         value={value}
+        width={200}
+        height={160}
+        header="TEMPERATURE"
+        color={colorHex}
+        min={0}
+        max={49}
       />
     );
   }
