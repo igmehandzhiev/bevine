@@ -30,6 +30,7 @@ class GaugeWrapper extends React.PureComponent {
             min={min}
             max={max}
             valueFormatter={valueFormatter}
+            valueLabelStyle={{ fontSize: "24px" }}
           />
         </Card.Content>
       </Card>

@@ -27,7 +27,7 @@ export class MoistureSensor extends React.Component {
   }
 
   fetchMoisture() {
-    Fetch.redirect("/api/moisture")
+    Fetch.redirect("/data/moisture")
       .then(response => {
         return response.json();
       })

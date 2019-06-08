@@ -1,18 +1,18 @@
 import React, { PureComponent } from "react";
 
 class CustomizedChartLabel extends PureComponent {
-  static fillColor(value) {
+  static fillColor(value, middleValue = 55) {
     if (value < 13) {
-      return "green";
-    }
-    if (value < 25) {
       return "blue";
+    }
+    if (value < middleValue) {
+      return "green";
     }
     return "red";
   }
 
   render() {
-    const { x, y, value } = this.props;
+    const { x, y, value, middleValue } = this.props;
 
     return (
       <text
@@ -20,7 +20,7 @@ class CustomizedChartLabel extends PureComponent {
         y={y}
         dy={-9}
         dx={-5}
-        fill={CustomizedChartLabel.fillColor(value)}
+        fill={CustomizedChartLabel.fillColor(value, middleValue)}
         fontSize={13}
         textAnchor="middle"
       >

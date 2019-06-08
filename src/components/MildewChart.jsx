@@ -9,7 +9,6 @@ import {
   YAxis
 } from "recharts";
 import { Accordion, Icon } from "semantic-ui-react";
-import { Fetch } from "../services/Fetch";
 import CustomizedChartLabel from "./CustomizedChartLabel";
 
 export class MildewChart extends React.Component {
@@ -17,11 +16,11 @@ export class MildewChart extends React.Component {
     super(props);
     this.state = {
       data: [
-        { name: "05/06", temperature: 12, humidity: 61, moisture: 70 },
-        { name: "06/06", temperature: 15, humidity: 54, moisture: 65 },
-        { name: "07/06", temperature: 17, humidity: 61, moisture: 53 },
-        { name: "08/06", temperature: 22, humidity: 50, moisture: 41 },
-        { name: "09/06", temperature: 26, humidity: 79, moisture: 63 }
+        { name: "05/06", temperature: 13, humidity: 61, moisture: 70 },
+        { name: "06/06", temperature: 21, humidity: 54, moisture: 65 },
+        { name: "07/06", temperature: 27, humidity: 61, moisture: 53 },
+        { name: "08/06", temperature: 30, humidity: 71, moisture: 41 },
+        { name: "09/06", temperature: 34, humidity: 63, moisture: 49 }
       ]
     };
   }
@@ -64,7 +63,7 @@ export class MildewChart extends React.Component {
               type="natural"
               dataKey="temperature"
               stroke="#653887"
-              label={<CustomizedChartLabel />}
+              label={<CustomizedChartLabel middleValue={33} />}
             />
             <Line
               type="natural"
@@ -76,7 +75,7 @@ export class MildewChart extends React.Component {
               type="natural"
               dataKey="moisture"
               stroke="#1284d0"
-              label={<CustomizedChartLabel />}
+              label={<CustomizedChartLabel middleValue={49}/>}
             />
           </LineChart>
         </Accordion.Content>

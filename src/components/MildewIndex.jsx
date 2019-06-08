@@ -45,7 +45,7 @@ class MildewIndex extends React.Component {
         // endAngle={180}
         value={value}
         height={350}
-        valueFontSize="72px"
+        valueFontSize="48px"
       />
     );
   }
