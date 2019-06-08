@@ -22,10 +22,7 @@ export class TemperatureSensor extends React.Component {
 
   componentDidMount() {
     setInterval(() => {
-      const value = Math.random() * 100;
-      this.setState({
-        value: this.fetchTemperature()
-      });
+      this.fetchTemperature();
     }, 3000);
   }
 
@@ -53,8 +50,8 @@ export class TemperatureSensor extends React.Component {
         height={160}
         header="TEMPERATURE"
         color={colorHex}
-        min={0}
-        max={49}
+        min={-20}
+        max={40}
         valueFormatter={v => `${v}°C`}
       />
     );
