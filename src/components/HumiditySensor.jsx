@@ -53,6 +53,7 @@ export class HumiditySensor extends React.Component {
         color={colorHex}
         min={0}
         max={100}
+        valueFormatter={v => `${v}%`}
       />
     );
   }

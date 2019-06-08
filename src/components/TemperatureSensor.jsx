@@ -50,8 +50,8 @@ export class TemperatureSensor extends React.Component {
         height={160}
         header="TEMPERATURE"
         color={colorHex}
-        min={-20}
-        max={40}
+        min={-30}
+        max={60}
         valueFormatter={v => `${v}°C`}
       />
     );

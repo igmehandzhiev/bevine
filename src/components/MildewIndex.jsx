@@ -13,10 +13,7 @@ class MildewIndex extends React.Component {
 
   componentDidMount() {
     setInterval(() => {
-      const value = Math.random() * 100;
-      this.setState({
-        value: this.fetchMildewData()
-      });
+      this.fetchMildewData();
     }, 3000);
   }
 
@@ -40,7 +37,7 @@ class MildewIndex extends React.Component {
     return (
       <RadialChartWrapper
         className="mildew"
-        header="MILDEW INDEX"
+        header="DOWNY MILDEW RISK"
         // startAngle={0}
         // endAngle={180}
         value={value}
