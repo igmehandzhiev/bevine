@@ -22,7 +22,6 @@ export class HumiditySensor extends React.Component {
 
   componentDidMount() {
     setInterval(() => {
-      const value = Math.random() * 100;
       this.fetchHumidity();
     }, 3000);
   }

@@ -19,10 +19,7 @@ export class MoistureSensor extends React.Component {
 
   componentDidMount() {
     setInterval(() => {
-      const value = Math.random();
-      this.setState({
-        value: this.fetchMoisture()
-      });
+      this.fetchMoisture();
     }, 3000);
   }
 
