@@ -16,6 +16,7 @@ import { HumiditySensor } from "./components/HumiditySensor";
 import { TemperatureSensor } from "./components/TemperatureSensor";
 import { MoistureSensor } from "./components/MoistureSensor";
 import MildewIndex from "./components/MildewIndex";
+import BlackRootIndex from "./components/BlackRootIndex";
 
 function App() {
   return (
@@ -48,8 +49,13 @@ function App() {
               <MoistureSensor />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
-            <MildewIndex />
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <MildewIndex />
+            </Grid.Column>
+            <Grid.Column>
+              <BlackRootIndex />
+            </Grid.Column>
           </Grid.Row>
           <Divider />
           <Grid.Row>
