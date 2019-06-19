@@ -17,11 +17,11 @@ export class MildewChart extends React.Component {
     super(props);
     this.state = {
       data: [
-        { 'date': "17.06.2019", 'Black root index': 40.0, 'Mildew index': 84.15},
-        { 'date': "18.06.2019", 'Black root index': 0.1, 'Mildew index': 79.15},
-        { 'date': "19.06.2019", 'Black root index': 5, 'Mildew index': 80.4},
-        { 'date': "20.06.2019", 'Black root index': 13, 'Mildew index': 83.25},
-        { 'date': "21.06.2019", 'Black root index': 24, 'Mildew index': 79.75}
+        { "Date": "17.06.2019", "Black root index": 40.0, "Mildew index": 84.15},
+        { "Date": "18.06.2019", "Black root index": 0.1, "Mildew index": 79.15},
+        { "Date": "19.06.2019", "Black root index": 5, "Mildew index": 80.4},
+        { "Date": "20.06.2019", "Black root index": 13, "Mildew index": 83.25},
+        { "Date": "21.06.2019", "Black root index": 24, "Mildew index": 79.75}
       ]
     };
   }
@@ -67,9 +67,9 @@ export class MildewChart extends React.Component {
           History Data
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 0}>
-          <LineChart width={500} height={350} data={data}>
+          <LineChart width={550} height={350} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" height={50} />
+            <XAxis dataKey="Date" height={50} />
             <YAxis
               label={{
                 value: "Diseases predictions",
