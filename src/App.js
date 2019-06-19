@@ -17,6 +17,7 @@ import { TemperatureSensor } from "./components/TemperatureSensor";
 import { MoistureSensor } from "./components/MoistureSensor";
 import MildewIndex from "./components/MildewIndex";
 import BlackRootIndex from "./components/BlackRootIndex";
+import DiseasesPredictionsChart from "./components/DiseasesPredictionsChart";
 
 function App() {
   return (
@@ -60,6 +61,10 @@ function App() {
           <Divider />
           <Grid.Row>
             <MildewChart/>
+          </Grid.Row>
+          <Divider />
+          <Grid.Row>
+            <DiseasesPredictionsChart/>
           </Grid.Row>
         </Grid>
       </Grid>
