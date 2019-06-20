@@ -46,12 +46,13 @@ export class DiseasesPredictionsChart extends React.Component {
           size: 6
         },
         xaxis: {
+        // Awful, but working as we want (:
           categories: [
-            "20.06.2019",
-            "21.06.2019",
-            "22.06.2019",
-            "23.06.2019",
-            "24.06.2019"
+            new Date().getDate() + "." + (new Date().getMonth() + 1) + "." + new Date().getFullYear(),
+            new Date().getDate() + 1 + "." + (new Date().getMonth() + 1) + "." + new Date().getFullYear(),
+            new Date().getDate() + 2 + "." + (new Date().getMonth() + 1) + "." + new Date().getFullYear(),
+            new Date().getDate() + 3 + "." + (new Date().getMonth() + 1) + "." + new Date().getFullYear(),
+            new Date().getDate() + 4 + "." + (new Date().getMonth() + 1) + "." + new Date().getFullYear()
           ],
           title: {
             text: "Date"
@@ -83,13 +84,13 @@ export class DiseasesPredictionsChart extends React.Component {
   }
 
   render() {
-    const { value } = this.state;
+    const { options, series } = this.state;
 
     return (
       <div id="chart">
         <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
+          options={options}
+          series={series}
           type="line"
           height="400"
           width="700"
