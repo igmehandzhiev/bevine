@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { Fetch } from "../services/Fetch";
 
-const THREE_HOURS = 5000;
+const THREE_HOURS = 108000;
 const chartOptions = {
   chart: {
     id: "mychart",
