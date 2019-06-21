@@ -11,7 +11,6 @@ import {
 } from "semantic-ui-react";
 import logo from "./graphics/logo_white.png";
 import "./css/App.css";
-import { MildewChart } from "./components/MildewChart";
 import { HumiditySensor } from "./components/HumiditySensor";
 import { TemperatureSensor } from "./components/TemperatureSensor";
 import { MoistureSensor } from "./components/MoistureSensor";
@@ -57,10 +56,6 @@ function App() {
             <Grid.Column>
               <BlackRootIndex />
             </Grid.Column>
-          </Grid.Row>
-          <Divider />
-          <Grid.Row>
-            <MildewChart/>
           </Grid.Row>
           <Divider />
           <Grid.Row>
