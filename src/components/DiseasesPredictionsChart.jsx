@@ -1,6 +1,8 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { Fetch } from "../services/Fetch";
 
+const THREE_HOURS = 10_800_000;
 const chartOptions = {
   chart: {
     id: "mychart",
@@ -43,35 +45,16 @@ const chartOptions = {
   xaxis: {
     // Awful, but working as we want (:
     categories: [
-      `${new Date().getDate() 
-        }.${ 
-        new Date().getMonth() + 1 
-        }.${ 
-        new Date().getFullYear()}`,
-      `${new Date().getDate() +
-        1 
-        }.${ 
-        new Date().getMonth() + 1 
-        }.${ 
-        new Date().getFullYear()}`,
-      `${new Date().getDate() +
-        2 
-        }.${ 
-        new Date().getMonth() + 1 
-        }.${ 
-        new Date().getFullYear()}`,
-      `${new Date().getDate() +
-        3 
-        }.${ 
-        new Date().getMonth() + 1 
-        }.${ 
-        new Date().getFullYear()}`,
-      `${new Date().getDate() +
-        4 
-        }.${ 
-        new Date().getMonth() + 1 
-        }.${ 
-        new Date().getFullYear()}`
+      `${new Date().getDate()}.${new Date().getMonth() +
+        1}.${new Date().getFullYear()}`,
+      `${new Date().getDate() + 1}.${new Date().getMonth() +
+        1}.${new Date().getFullYear()}`,
+      `${new Date().getDate() + 2}.${new Date().getMonth() +
+        1}.${new Date().getFullYear()}`,
+      `${new Date().getDate() + 3}.${new Date().getMonth() +
+        1}.${new Date().getFullYear()}`,
+      `${new Date().getDate() + 4}.${new Date().getMonth() +
+        1}.${new Date().getFullYear()}`
     ],
     title: {
       text: "Date"
@@ -106,6 +89,26 @@ export class DiseasesPredictionsChart extends React.Component {
         }
       ]
     };
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.fetchIndexes();
+    }, THREE_HOURS);
+  }
+
+  fetchIndexes() {
+    Fetch.redirect("/data/diseasesPredictions")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        if (data.status !== 403) {
+          this.setState({
+            series: data
+          });
+        }
+      });
   }
 
   render() {
